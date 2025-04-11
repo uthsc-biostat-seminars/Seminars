@@ -12,8 +12,7 @@ def is_future_date(date_str):
 
 for i in range(len(upcoming)):
     if is_future_date(upcoming.iloc[i]["Date"].replace('"', "")):
-        print(upcoming.iloc[i]["Date"].replace('"', ""))
-        upcoming.iloc[i]["Date"] = upcoming.iloc[i]["Date"].replace('"', "")
+        next
     else:
         print("past seminar")
         past = pd.concat([past, upcoming.iloc[[i]]], ignore_index=True)
