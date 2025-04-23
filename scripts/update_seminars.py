@@ -28,6 +28,12 @@ try:
 except NameError:
     print("No updates")
 else:
+    if len(upcoming_new)==0:
+        upcoming_new.loc[0, "Date"] = str(datetime.now().year)+"-"+str(datetime.now().month)+"-"+str(datetime.now().day)
+        upcoming_new.loc[0, "Speaker"] = "TBA"
+        upcoming_new.loc[0, "Affiliation"] = " "
+        upcoming_new.loc[0, "Title"] = " "
+        upcoming_new.loc[0, "Abstract"] = "No upcoming seminars at the moment. Please check back later for updates. Thank you for your understanding and continued interest."
     upcoming_new.to_csv("../Seminars/upcoming_seminars.tsv", sep="\t", index=False)    
     print("Updated past and upcoming seminars TSV files.")
-
+ 
