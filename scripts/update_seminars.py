@@ -10,7 +10,7 @@ def is_future_date(date_str):
 past = pd.read_csv("../Seminars/past_seminars.tsv", sep="\t")
 upcoming = pd.read_csv("../Seminars/upcoming_seminars.tsv", sep="\t")
 
-# TODO check if empty or TBA
+# TODO check if empty or TBA    
 
 for i in range(len(upcoming)):
 
@@ -19,8 +19,11 @@ for i in range(len(upcoming)):
         continue
     else:
         print("past seminar")
-        past = pd.concat([past, upcoming.iloc[[i]]], ignore_index=True)
+        if upcoming.loc[0, "Speaker"] != "TBA":
+            past = pd.concat([past, upcoming.iloc[[i]]], ignore_index=True)
         upcoming_new = upcoming.drop(i, inplace=False)
+
+
 
 past.to_csv("../Seminars/past_seminars.tsv", sep="\t", index=False)
 try:
