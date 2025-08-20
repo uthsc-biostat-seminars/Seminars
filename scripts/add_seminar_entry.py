@@ -45,7 +45,7 @@ def add_upcoming_seminar():
         print("Let's re-enter the details.\n")
 
     df = pd.DataFrame([details])
-    file_path = "test.tsv"
+    file_path = "../upcoming_seminars.tsv"
 
     # Append to the TSV, writing header only if file does not exist
     if not os.path.isfile(file_path):
